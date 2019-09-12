@@ -1,10 +1,13 @@
 package Game.Entities.Dynamic;
 
 import Main.Handler;
+import Worlds.WorldBase;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
+
+import Input.KeyManager;
 
 /**
  * Created by AlexVR on 7/2/2018.
@@ -30,6 +33,7 @@ public class Player {
         direction= "Right";
         justAte = false;
         lenght= 1;
+        //lenght += KeyManager.keys[KeyEvent.VK_N];/*trying to add key/
 
     }
 
@@ -104,7 +108,7 @@ public class Player {
         Random r = new Random();
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
             for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
-                g.setColor(Color.WHITE);
+                g.setColor(Color.green);//Changed the color of the snake to green
 
                 if(playeLocation[i][j]||handler.getWorld().appleLocation[i][j]){
                     g.fillRect((i*handler.getWorld().GridPixelsize),
@@ -121,6 +125,7 @@ public class Player {
 
     public void Eat(){
         lenght++;
+        WorldBase.score += Math.sqrt(2* WorldBase.score + 1); //update score for every apple eaten. Score initialized in World Base
         Tail tail= null;
         handler.getWorld().appleLocation[xCoord][yCoord]=false;
         handler.getWorld().appleOnBoard=false;
@@ -223,8 +228,12 @@ public class Player {
                 }
                 break;
         }
+        //attempting a loop
         handler.getWorld().body.addLast(tail);
         handler.getWorld().playerLocation[tail.x][tail.y] = true;
+        //update score
+       //WorldBase.newscore = (double) Math.sqrt((2* WorldBase.score )+ 1);
+       //update score
     }
 
     public void kill(){

@@ -3,6 +3,8 @@ package Input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import Game.Entities.Dynamic.Player;
+
 
 /**
  * Created by AlexVR on 7/1/2018.
@@ -43,6 +45,9 @@ public class KeyManager implements KeyListener {
 		right = keys[KeyEvent.VK_D];
 
 		pbutt = keys[KeyEvent.VK_ESCAPE];
+		//add new tail when pressing N
+		//Player.lenght += keys[KeyEvent.VK_N];
+		//add new tail when pressing N
 
 	}
 

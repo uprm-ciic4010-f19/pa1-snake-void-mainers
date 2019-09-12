@@ -14,7 +14,9 @@ import java.util.LinkedList;
  */
 public abstract class WorldBase {
 
-    //How many pixels are from left to right
+    private static final Font FONT_SMALL = null;
+
+	//How many pixels are from left to right
     //How many pixels are from top to bottom
     //Must be equal
     public int GridWidthHeightPixelCount;
@@ -51,17 +53,24 @@ public abstract class WorldBase {
 
     }
 
+    public static double score=0; //initialized score
+    //public static double scoreformula =  Math.sqrt(2* WorldBase.newscore + 1); /*Ended up not being used*/
+    
     public void render(Graphics g){
 
-        for (int i = 0; i <= 800; i = i + GridPixelsize) {
+        for (int i = 0; i <= 1200; i = i + GridPixelsize) {
 
-            g.setColor(Color.white);
+            g.setColor(new Color (128, 0, 128));//made grid lines invisible
             g.drawLine(0, i, handler.getWidth() , i);
             g.drawLine(i,0,i,handler.getHeight());
 
         }
 
-
+         g.setColor(Color.WHITE);
+         g.setFont(FONT_SMALL);
+         g.drawString("Score: " + score, 10, 20);
+        
+       
 
     }
 

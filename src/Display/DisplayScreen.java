@@ -1,5 +1,6 @@
 package Display;
 
+//Added color library
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -47,8 +48,8 @@ public class DisplayScreen {
         canvas.setMaximumSize(new Dimension(width, height));
         canvas.setMinimumSize(new Dimension(width, height));
         canvas.setFocusable(false);
-        canvas.setBackground(Color.black);
-
+        canvas.setBackground(new Color (128, 0, 128));//Phase 1-Changed from black to purple
+        
         frame.add(canvas);
         frame.pack();
     }
